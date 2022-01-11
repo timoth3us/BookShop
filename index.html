@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bookshop</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    
+    <div id="app">
+        
+        <div class="header">
+            <div class="site-logo">
+                <img v-bind:src="siteLogo">
+            </div>
+            <div class="search-wrapper">
+                <input type="text" v-model="search" placeholder="Search title.."/>
+            </div>
+            <div class="cart-logo">
+                <img v-bind:src="cartLogo">
+            </div>
+        </div>
+        
+        <div class="intro-text"> 
+            <h1>Unsere Bücher Selektion</h1>
+            <p>Aus langjähriger Erfahrung bieten wir eine eine handverlesene Auswahl der Creme de la Creme der Literaturwelt. Alle Werke werden erst nach gründlicher Analyse und anschließender Bewertung unseres Fachteams in die Sammlung aufgenommen. So finden sie immer das richtige Buch und müssen sich dennoch nicht allein durch den schieren Urwald der Bücher dieser Welt kämpfen.</p>
+        </div>
+    </div>
+   
+
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+
+  </body>
+</html>
