@@ -16,21 +16,24 @@
             <div class="site-logo">
                 <img v-bind:src="siteLogo">
             </div>
-            <div class="search-wrapper">
+            <div v-if="viewCatalog" class="search-wrapper">
                 <input type="text" v-model="search" placeholder="Search title.."/>
             </div>
+            <div v-if="!viewCatalog">
+                <button @click="closeCart">Zurück</button>
+            </div>
             <div class="cart-logo">
-                <img v-bind:src="cartLogo">
+                <img v-bind:src="cartLogo" @click="openCart">
                 <p>({{ cart.length }})</p>
             </div>
         </div>
         
-        <div class="intro-text"> 
+        <div v-if="viewCatalog" class="intro-text"> 
             <h1>Unsere Bücher Selektion</h1>
             <p>Aus langjähriger Erfahrung bieten wir eine eine handverlesene Auswahl der Creme de la Creme der Literaturwelt. Alle Werke werden erst nach gründlicher Analyse und anschließender Bewertung unseres Fachteams in die Sammlung aufgenommen. So finden sie immer das richtige Buch und müssen sich dennoch nicht allein durch den schieren Urwald der Bücher dieser Welt kämpfen.</p>
         </div>
 
-        <div v-for="book in books" :key="book.id" class="product-display">
+        <div v-if="viewCatalog" v-for="book in books" :key="book.id" class="product-display">
             <div class="product-image">
                 <img v-bind:src="book.image">
             </div>
@@ -40,10 +43,25 @@
                 <p v-if="book.quantity > 5">In Stock</p>
                 <p v-else-if="book.quantity <= 5 && book.quantity > 0">Almost sold out</p>
                 <p v-else>Out of Stock</p>
-                <button @click="addToCart(book.id)" class="button">+</button>
-                <button @click="removeFromCart(book.id)" class="button">-</button>
+                <button @click="addToCart(book)" class="button">+</button>
+                <button @click="removeFromCart(book)" class="button">-</button>
                 <p>{{ book.price }} €</p>
             </div>
+        </div>
+
+        <div v-if="!viewCatalog">
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Sum</th>
+                </tr>
+                <tr v-for="id in counts">
+                    <td v-if="">{{ }}</td>
+                </tr>
+                
+            </table>
         </div>
 
     </div>
