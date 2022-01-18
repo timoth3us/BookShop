@@ -8,31 +8,34 @@ const app = Vue.createApp({
             cartLogo: './assets/images/shopping-cart.png',
             search: '',
             books: [
-                {id: 1234, title: 'Python for Beginnners', author: 'Jay-Z', quantity: 20, image: './assets/images/python.jpeg', price: 49.99},
-                {id: 4321, title: 'Kochen Lernen leicht gemacht', author: 'Angela Merkel', quantity: 4, image: './assets/images/kochen.jpeg', price: 23.99}
+                {id: 1234, title: 'Python for Beginnners', author: 'Jay-Z', quantity: 0, image: './assets/images/python.jpeg', price: 49.99},
+                {id: 4321, title: 'Kochen Lernen leicht gemacht', author: 'Angela Merkel', quantity: 0, image: './assets/images/kochen.jpeg', price: 23.99}
             ],
-            viewCatalog: true
+            showCart: false
+        }
+    },
+    computed: {
+        cart(){
+            return this.books.filter(book => book.quantity > 0);
+        },
+        totalQuantity(){
+            return this.books.reduce((total, product) => total + product.quantity,0);
         }
     },
     methods: {
-        addToCart(book){
-            this.cart.push(book)
-        },
-        removeFromCart(id){
-            const index = this.cart.indexOf(id)
-                if (index > -1) {
-                    this.cart.splice(index, 1)
+        updateCart(book, updateType) {      
+            for (let i = 0; i < this.books.length; i++) {
+              if (this.books[i].id === book.id) {
+                if (updateType === 'subtract') {
+                  if (this.books[i].quantity !== 0) {
+                    this.books[i].quantity--;
+                  }
+                } else {
+                  this.books[i].quantity++;
                 }
-        },
-        openCart(){
-            this.viewCatalog = false;
-            this.cart.forEach((x) => {
-            this.counts[x] = (this.counts[x] || 0) + 1;
-            });
-            console.log(this.counts);
-        },
-        closeCart(){
-            this.viewCatalog = true;
-        }
+                break;
+              }
+            }
+          }
     }
-})
+});
