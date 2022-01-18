@@ -1,7 +1,6 @@
 const app = Vue.createApp({
     data(){
         return{
-            cart: [],
             counts: [],
             order: [],
             siteLogo: './assets/images/bookshop-logo.png',

@@ -23,13 +23,13 @@
             </div>
             <div class="nav__cart">
                 <button @click="showCart = !showCart">
-                  <img src="./assets/images/shopping-cart.png"></img>
+                    <i class="bi bi-cart-fill"></i>
                 </button>
                 <span class="total-quantity">{{ totalQuantity }}</span>
                 <div v-if="showCart" class="cart-dropdown">
                   <ul class="cart-dropdown__list">
                     <li
-                      v-for="book in books"
+                      v-for="book in cart"
                       :key="book.id"
                     >
                       {{ book.title }} ({{ book.quantity }})
