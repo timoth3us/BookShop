@@ -21,7 +21,7 @@
                 <img v-bind:src="siteLogo" class="img-fluid">
             </div>
             <div class="search-wrapper">
-                <input type="search" class="form-control fs-6" placeholder="Search..." aria-label="Search" v-model="search">
+                <input type="text" name="search" class="form-control fs-6" placeholder="Search..." aria-label="Search" v-model="search">
             </div>
             <div class="nav-cart">
                 <button @click="showCart = !showCart" class="btn-cart">
@@ -36,8 +36,9 @@
                     <li v-if="cart.length == 0">Noch nichts da</li>
                     <li v-for="book in cart" :key="book.id"> {{ book.title }} ({{ book.quantity }})</li>
                   </ul>
-                  <div class="d-flex justify-content-center">
-                    <button v-if="cart.length !== 0" class="btn btn-outline-primary">Checkout</button>
+                  <div class="d-flex align-items-center flex-column">
+                     <p>Total: {{ total }} €</p>
+                     <button v-if="cart.length !== 0" class="btn btn-outline-primary">Checkout</button>
                   </div>
                 </div>
               </div>
@@ -49,7 +50,7 @@
         </div>
         
         <section class="products d-grid gap-3">
-            <div  v-for="book in books" :key="book.id" class="product-display border border-1 rounded">
+            <div  v-for="book in filteredList" :key="book.id" class="product-display border border-1 rounded">
                 <div class="product-image">
                     <img v-bind:src="book.image">
                 </div>

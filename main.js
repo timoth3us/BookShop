@@ -1,10 +1,7 @@
 const app = Vue.createApp({
     data(){
         return{
-            counts: [],
-            order: [],
             siteLogo: './assets/images/bookshop-logo.png',
-            cartLogo: './assets/images/shopping-cart.png',
             search: '',
             books: [
                 {id: 1234, title: 'Python for Beginnners', author: 'Jay-Z', quantity: 0, image: './assets/images/python.jpeg', price: 49.99},
@@ -14,11 +11,19 @@ const app = Vue.createApp({
         }
     },
     computed: {
-        cart(){
+        cart() {
             return this.books.filter(book => book.quantity > 0);
         },
-        totalQuantity(){
-            return this.books.reduce((total, product) => total + product.quantity,0);
+        totalQuantity() {
+            return this.books.reduce((total, book) => total + book.quantity,0);
+        },
+        filteredList() {
+            return this.books.filter(book => {
+              return book.title.toLowerCase().includes(this.search.toLowerCase())
+            })
+        },
+        total() {
+            return this.books.reduce((total, book) => total + book.quantity * book.price, 0)
         }
     },
     methods: {
