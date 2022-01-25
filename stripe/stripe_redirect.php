@@ -23,9 +23,9 @@ if($_GET['live'] ) {
 	$public_key_for_js="pk_test_aLcPqdtG2FDzxPWu5N9OBNOs00Yt0nKnhS";  //  PK Großhändler - So lassen !!!!
 } else {
       // Der Key Ihres eigenen Stripe-Accounts - bitte hier einsetzen->  der nachfolgende Code ist nicht mehr gültig !!!
-    \Stripe\Stripe::setApiKey('sk_test_51I6B0JBXXXXXXXXXXXXXXXXXXXXXXXXXOYO5HjRqKzEmTJPxHFxs57Y5iS6mfi34j00JY9mPoqb');
+    \Stripe\Stripe::setApiKey('sk_test_51KLUIVIEJPrm19q25Mctq6Q31ZFWZFefVxxB7GykPVrKZJtH1ll48fhZDDPi8O46c7Dis0QlYxxJEm4S1rJzayY0002NRScqyA');
 	
-	$public_key_for_js="pk_test_51I6B0JB5oU29RTwXXXXXXXXXXozs00iVmkuxMm";  // PK  G00 
+	$public_key_for_js="pk_test_51KLUIVIEJPrm19q29OLg0UwG18z2ZNqxhFTzdtbcV1dybS7CVKnsCwU3v6HWeiDFJpcvB20RdK5ZhnbprdqlzwpE00pLkc5Pzd";  // PK  G00 
 }
 // #################################################################  
 

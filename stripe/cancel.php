@@ -20,7 +20,7 @@ echo "<br>Bitte notieren Sie sich die Stripe-SessionID für Rückfragen:" .  $_G
 
 <hr>
 
-<a href="https://iws107.informatik.htw-dresden.de/ewa/demos/__STRIPE_DEMOS_2022/index.html">Zurück zum Shop</a>
+<a href="https://iws107.informatik.htw-dresden.de/ewa/G12/vue_beleg/BookShop/index1.html">Zurück zum Shop</a>
 
 
 </body>

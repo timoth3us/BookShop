@@ -1,4 +1,6 @@
 <?php
+include '../catalog.php';
+
 $books = [
     [
         'name' => 'PHP For Beginners',
