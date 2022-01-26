@@ -37,7 +37,7 @@
                   	</ul>
                   	<div class="d-flex align-items-center flex-column">
                      	<p>Total: {{ total }} €</p>
-                     	<button v-if="cart.length !== 0" class="btn btn-outline-primary"><a href='./stripe/stripe_redirect.php?live=0&bookId=1'> Checkout </a></button>
+                     	<a href='./stripe/stripe_redirect.php?live=0&bookId=1'><button v-if="cart.length !== 0" class="btn btn-outline-primary"> Checkout </button></a>
                   	</div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         <section class="products d-grid gap-3">
             <div  v-for="book in filteredList" :key="book.id" class="product-display border border-1 rounded">
                 <div class="product-image">
-                    <img src="https://placekitten.com/300/300">
+                    <img :src="`https://picsum.photos/140/140?random=${number}`">
                 </div>
                 <div>
                     <h1>{{ book.title }}</h1>
