@@ -35,7 +35,7 @@ const app = Vue.createApp({
                 		if (this.books[i].quantity !== 0) {
                   			this.books[i].quantity--;
 							this.books[i].stock++;
-                		} 
+                		}
               		} else {
 						if (this.books[i].stock > 0){
 							this.books[i].quantity++;

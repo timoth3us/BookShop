@@ -21,7 +21,7 @@ if($_GET['live']) {
       // Der Key Ihres eigenen Stripe-Accounts 
     \Stripe\Stripe::setApiKey('sk_test_51KLUIVIEJPrm19q25Mctq6Q31ZFWZFefVxxB7GykPVrKZJtH1ll48fhZDDPi8O46c7Dis0QlYxxJEm4S1rJzayY0002NRScqyA');
 	
-	$public_key_for_js="pk_test_51KLUIVIEJPrm19q29OLg0UwG18z2ZNqxhFTzdtbcV1dybS7CVKnsCwU3v6HWeiDFJpcvB20RdK5ZhnbprdqlzwpE00pLkc5Pzd";  // PK  G01 
+	$public_key_for_js="pk_test_51KLUIVIEJPrm19q29OLg0UwG18z2ZNqxhFTzdtbcV1dybS7CVKnsCwU3v6HWeiDFJpcvB20RdK5ZhnbprdqlzwpE00pLkc5Pzd";  // PK  G12
 }
 // #################################################################  
 
@@ -29,8 +29,8 @@ try {
     $session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
         'line_items' => [$books[$bookId]],
-        'success_url' => 'http://ivm108.informatik.htw-dresden.de/ewa/Demos/bookstore-stripe-checkout/' . 'success.php?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => 'http://ivm108.informatik.htw-dresden.de//ewa/Demos/bookstore-stripe-checkout/' . 'cancel.php',
+        'success_url' => 'https://iws107.informatik.htw-dresden.de/ewa/G12/vue_beleg/BookShop/stripe/' . 'success.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => 'https://iws107.informatik.htw-dresden.de/ewa/G12/vue_beleg/BookShop/stripe/' . 'cancel.php?session_id={CHECKOUT_SESSION_ID}',
     ]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
     echo "Error in Session::create()";
