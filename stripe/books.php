@@ -1,6 +1,7 @@
 <?php
 include '../catalog.php';
 
+
 $books = [
     [
         'name' => 'PHP For Beginners',
@@ -16,7 +17,7 @@ $books = [
         'images' => [getenv('BASE_URL') . 'images/js.jpg'],
         'amount' => 3999,
         'currency' => 'eur',
-        'quantity' => 1,
+        'quantity' => 5,
     ]
 ]; 
 ?>
