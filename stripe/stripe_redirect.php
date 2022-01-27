@@ -4,6 +4,7 @@
 require('stripe-php-master/init.php');
 
 include 'books.php';
+//Daten von Warenkorb aus Vue
 
 // $test = ['name' => 'testbuch', 'amount'=> '1299', 'currency' => 'eur', 'quantity' => '1'];
 

@@ -37,7 +37,7 @@
                   	</ul>
                   	<div class="d-flex align-items-center flex-column">
                      	<p>Total: {{ total }} €</p>
-                     	<a href='./stripe/stripe_redirect.php?live=0&bookId=1'><button v-if="cart.length !== 0" class="btn btn-outline-primary"> Checkout </button></a>
+                     	<a href='./stripe/stripe_redirect.php?live=0&bookId=1' @click='sendCart'><button v-if="cart.length !== 0" class="btn btn-outline-primary"> Checkout </button></a>
                   	</div>
                 </div>
             </div>

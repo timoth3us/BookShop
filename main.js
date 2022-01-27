@@ -25,22 +25,6 @@ const app = Vue.createApp({
         },
         total() {
             return Math.round(this.books.reduce((total, book) => total + parseInt(book.quantity) * parseFloat(book.price), 0) * 100) / 100
-        },
-        generateBookstring(){
-            let bookstring = '';
-            for (let i = 0; i < this.cart.length; i++) {
-                bookstring += this.cart[i].id + ',';
-            }
-            console.log(bookstring);
-            return bookstring;
-        },
-        generateQuantitystring(){
-            let quantitystring = '';
-            for (let i = 0; i < this.cart.length; i++) {
-                quantitystring += this.cart[i].quantity + ',';
-            }
-            console.log(quantitystring);
-            return quantitystring;
         }
     },
     methods: {
@@ -63,6 +47,10 @@ const app = Vue.createApp({
               		break;
             	}
           	}
+        },
+        sendCart(){
+            var fs = require('fs');
+            fs.writeFile("./stripe/cart.json", this.cart);
         },
         fetchData(){
           	fetch("data.json")
