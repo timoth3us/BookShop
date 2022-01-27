@@ -49,8 +49,18 @@ const app = Vue.createApp({
           	}
         },
         sendCart(){
-            var fs = require('fs');
-            fs.writeFile("./stripe/cart.json", this.cart);
+            
+            const stripedata = this.cart.map((book)=>{return {
+                name: book.title,
+                description: '...',
+                images: [[`https://picsum.photos/140/140?random=${Math.random()*100}`]],
+                amount: parseInt(`${parseFloat(book.price) * 100}`),
+                currency: 'eur',
+                quantity: parseInt(book.quantity),
+            }})
+            
+            this.$refs.cartItems.value = JSON.stringify(stripedata);
+            this.$refs.cartform.submit();
         },
         fetchData(){
           	fetch("data.json")

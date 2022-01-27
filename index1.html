@@ -37,7 +37,14 @@
                   	</ul>
                   	<div class="d-flex align-items-center flex-column">
                      	<p>Total: {{ total }} €</p>
-                     	<a href='./stripe/stripe_redirect.php?live=0&bookId=1' @click='sendCart'><button v-if="cart.length !== 0" class="btn btn-outline-primary"> Checkout </button></a>
+                        <form 
+                        ref="cartform"
+                        action="https://iws107.informatik.htw-dresden.de/ewa/G12/vue_beleg/BookShop/stripe/stripe_redirect.php"
+                        method="POST"
+                        >
+                            <input id="cartId" ref="cartItems" type="hidden" name="cartData" />
+                            <button type="button" v-if="cart.length !== 0" @click="sendCart()" class="btn btn-outline-primary"> Checkout </button>
+                        </form>
                   	</div>
                 </div>
             </div>
@@ -51,7 +58,7 @@
         <section class="products d-grid gap-3">
             <div  v-for="book in filteredList" :key="book.id" class="product-display border border-1 rounded">
                 <div class="product-image">
-                    <img :src="`https://picsum.photos/140/140?random=${number}`">
+                    <img :src="`https://picsum.photos/140/140?random=${Math.random()*100}`">
                 </div>
                 <div>
                     <h1>{{ book.title }}</h1>

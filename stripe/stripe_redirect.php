@@ -3,13 +3,14 @@
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 require('stripe-php-master/init.php');
 
-include 'books.php';
+//include 'books.php';
 //Daten von Warenkorb aus Vue
 
 // $test = ['name' => 'testbuch', 'amount'=> '1299', 'currency' => 'eur', 'quantity' => '1'];
-
-$bookid = $_GET["bookId"]; 
-echo "Kaufe Buch mit Bookid = $bookid  und Titel = " . $books[ $bookid ] ; 
+//echo '<pre>',print_r(json_decode($_POST['cartData'], true),1),'</pre>';
+//exit();
+//$bookid = $_GET["bookId"]; 
+//echo "Kaufe Buch mit Bookid = $bookid  und Titel = " . $books[ $bookid ] ; 
 $currency = 'eur';
 
 $public_key_for_js ="1" ; // Definition einer Variable für den public key - Verwendung ganz unten in JS
@@ -33,7 +34,7 @@ if($_GET['live'] ) {
 try {
     $session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
-        'line_items' => [$books[ $bookid ]],
+        'line_items' => [json_decode($_POST['cartData'], true)],
        // 'line_items' => [$test],
        'success_url' => 'https://iws107.informatik.htw-dresden.de/ewa/G12/vue_beleg/BookShop/stripe/' . 'success.php?session_id={CHECKOUT_SESSION_ID}',
         'cancel_url'  => 'https://iws107.informatik.htw-dresden.de/ewa/G12/vue_beleg/BookShop/stripe/' . 'cancel.php?session_id={CHECKOUT_SESSION_ID}',
